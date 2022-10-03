@@ -1,0 +1,223 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+textarea {
+  resize: vertical;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+@-webkit-keyframes rotating-button {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes rotating-button {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+root {
+  font-family: "Work Sans", sans-serif;
+}
+
+.burger__btn {
+  position: fixed;
+  right: 20px;
+  top: 30px;
+  background-color: transparent;
+  height: 60px;
+  width: 60px;
+  z-index: 10;
+}
+
+.burger__box {
+  position: relative;
+  width: 80%;
+  padding: 5px;
+}
+
+.burger__bar {
+  width: 100%;
+  height: 3px;
+  background-color: #ffba08;
+  position: absolute;
+  transition: transform 0.2s;
+}
+.burger__bar::before {
+  width: 100%;
+  height: 3px;
+  background-color: #ffba08;
+  position: absolute;
+  transition: transform 0.2s;
+  content: "";
+  top: -15px;
+  left: 0px;
+}
+.burger__bar::after {
+  width: 100%;
+  height: 3px;
+  background-color: #ffba08;
+  position: absolute;
+  transition: transform 0.2s;
+  content: "";
+  top: 15px;
+  left: 0px;
+}
+
+.active.burger__bar {
+  background-color: transparent;
+}
+.active.burger__bar::before {
+  transform: translateY(15px) rotate(45deg);
+}
+.active.burger__bar::after {
+  transform: translateY(-15px) rotate(-45deg);
+}
+
+.navigation {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  left: -100vw;
+  background-color: #d00000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: transform 0.2;
+  z-index: 5;
+}
+.navigation--active {
+  transform: translateX(100vw);
+}
+.navigation li {
+  margin: 0.5rem;
+  list-style: none;
+  font-size: 1.75rem;
+  text-decoration: none;
+}
+.navigation li :hover {
+  color: #ffba08;
+}
+.navigation li :focus {
+  color: #ffba08;
+}
+.navigation li a {
+  display: inline-block;
+  width: 100%;
+  padding: 50px;
+  color: #080911;
+}
+
+.header__name {
+  height: 80vh;
+  max-width: 100vw;
+  background-image: linear-gradient(140deg, rgba(0, 1, 16, 0.6) 40%, transparent 60%), url("/img/lq/barber-shop-g159939170_640.jpg");
+  background-size: cover;
+  background-position: 75%;
+  color: #ffba08;
+  position: relative;
+}
+.header__name h1 {
+  width: 80vw;
+  font-size: 4rem;
+  position: relative;
+  top: 10%;
+  left: 5%;
+}
+.header__name h6 {
+  width: 80vw;
+  font-size: 1.5rem;
+  position: relative;
+  top: 10%;
+  left: 5%;
+}
+
+.cta__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  height: 50px;
+  width: 100px;
+  transform: translateX(-50%);
+}
+.cta__container a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.cta__container a:after {
+  content: "";
+  position: absolute;
+  height: 200px;
+  width: 30px;
+  transform: translate(0%, 0%);
+  background-color: #d00000;
+  -webkit-animation: rotating-button 7s linear infinite;
+          animation: rotating-button 7s linear infinite;
+}
+.cta__container a button {
+  text-transform: uppercase;
+  box-sizing: border-box;
+  height: 95%;
+  width: 95%;
+  border-radius: 10px;
+  background-color: #ffba08;
+  z-index: 2;
+  box-shadow: inset 0px 0px 42px -11px rgb(66, 68, 90);
+}/*# sourceMappingURL=main.css.map */
