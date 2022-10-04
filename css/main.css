@@ -62,6 +62,34 @@ table {
     transform: rotate(359deg);
   }
 }
+@-webkit-keyframes glimmer-arrow {
+  0% {
+    opacity: 1;
+  }
+  35% {
+    opacity: 0;
+  }
+  65% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes glimmer-arrow {
+  0% {
+    opacity: 1;
+  }
+  35% {
+    opacity: 0;
+  }
+  65% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 root {
   font-family: "Work Sans", sans-serif;
 }
@@ -155,9 +183,14 @@ root {
   color: #080911;
 }
 
-.header__name {
+.section {
   height: 80vh;
   max-width: 100vw;
+  background-color: #080911;
+  border-bottom: 4px solid #ffba08;
+}
+
+.header__name {
   background-image: linear-gradient(140deg, rgba(0, 1, 16, 0.6) 40%, transparent 60%), url("/img/lq/barber-shop-g159939170_640.jpg");
   background-size: cover;
   background-position: 75%;
@@ -186,8 +219,8 @@ root {
   position: absolute;
   top: 60%;
   left: 50%;
-  height: 50px;
-  width: 100px;
+  height: 60px;
+  width: 150px;
   transform: translateX(-50%);
 }
 .cta__container a {
@@ -213,6 +246,7 @@ root {
 }
 .cta__container a button {
   text-transform: uppercase;
+  font-size: 16px;
   box-sizing: border-box;
   height: 95%;
   width: 95%;
@@ -220,4 +254,152 @@ root {
   background-color: #ffba08;
   z-index: 2;
   box-shadow: inset 0px 0px 42px -11px rgb(66, 68, 90);
+}
+
+.scroll__container {
+  position: relative;
+}
+
+.scroll__arrow {
+  width: 30px;
+  height: 30px;
+  border-top: 2px solid #ffba08;
+  border-right: 2px solid #ffba08;
+  transform: translateX(-50%) rotate(135deg);
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  -webkit-animation: glimmer-arrow 1.5s linear infinite;
+          animation: glimmer-arrow 1.5s linear infinite;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+}
+
+.scroll__arrow:nth-child(2) {
+  bottom: 40px;
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+
+.scroll__arrow:nth-child(3) {
+  bottom: 30px;
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+}
+
+.section__break {
+  height: 40vh;
+  width: 100%;
+  overflow: hidden;
+  background-color: #d00000;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='177' height='177' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='100' y1='33' x2='100' y2='-3'%3E%3Cstop offset='0' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='100' y1='135' x2='100' y2='97'%3E%3Cstop offset='0' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='%23bb0000' fill-opacity='0.6'%3E%3Crect x='100' width='100' height='100'/%3E%3Crect y='100' width='100' height='100'/%3E%3C/g%3E%3Cg fill-opacity='0.5'%3E%3Cpolygon fill='url(%23a)' points='100 30 0 0 200 0'/%3E%3Cpolygon fill='url(%23b)' points='100 100 0 130 0 100 200 100 200 130'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  /* background by SVGBackgrounds.com */
+  border-bottom: 4px solid #ffba08;
+}
+
+.section__title {
+  color: #ffba08;
+  font-size: 24px;
+  position: absolute;
+  top: 10px;
+}
+
+#our__saloons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.saloon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 20vh;
+  width: 90vw;
+  margin: 4vw;
+}
+.saloon:nth-child(3) {
+  flex-direction: row-reverse;
+}
+.saloon img {
+  width: 48%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.saloon .description {
+  width: 48%;
+  color: white;
+}
+
+#our__team {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+#our__team .people {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5%;
+}
+#our__team .people .person {
+  width: 45%;
+  max-height: 45%;
+  position: relative;
+  overflow: hidden;
+}
+#our__team .people .person .description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  padding: 5px;
+  background-color: #f48c06;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  visibility: hidden;
+}
+#our__team .people .person img {
+  max-height: 100%;
+  width: 100%;
+}
+#our__team .people .person:hover .description,
+#our__team .people .person:focus .description {
+  visibility: visible;
+}
+
+#Contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  justify-items: center;
+  align-items: center;
+  border: none;
+  height: 30vh;
+}
+#Contact .adress {
+  color: white;
+}
+#Contact .adress span {
+  font-size: 16px;
+  display: block;
+  margin: 2vh;
+}
+#Contact .socials {
+  font-size: 24px;
+  color: white;
+}
+#Contact .socials i {
+  margin: 2vh;
 }/*# sourceMappingURL=main.css.map */
